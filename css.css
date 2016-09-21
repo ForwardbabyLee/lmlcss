@@ -1,0 +1,21 @@
+/*当文本溢出：text-overflow*/
+
+/*text-overflow：显示省略符号来代表被修剪的文本*/
+/*text-overflow: clip  | ellipsis   | string ;*/
+/*clip：修剪文本*/
+/*ellipsis：显示省略符号来代表被修剪的文本*/
+/*string：使用给定的字符串来代表被修剪的文本*/
+/*给元素设置个宽度*/
+
+/*一、当文本溢出，显示省略号*/
+.test {
+    text-overflow:ellipsis;
+    overflow:hidden;
+    white-space:nowrap;
+    width: 15em;
+}
+/*二、当光标浮动到元素是那个，显示全文本*/
+.test:hover {
+    text-overflow:inherit;
+    overflow:visible;
+}
