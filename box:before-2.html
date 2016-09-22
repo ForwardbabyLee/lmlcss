@@ -37,6 +37,8 @@
         /* 容器内元素 垂直居中 显示*/
         display: -webkit-box;
         display: -ms-flexbox;
+        display: -moz-box;
+        display: -moz-flex;
         display: -webkit-flex;
         display: flex;
         /*水平方向*/
@@ -75,10 +77,12 @@
         *zoom:1;/*IE/7/6*/
     }
 
+
 </style>
 </head>
 
 <body>
+<h3>0.rem:相对长度单位。相对于根元素(即html元素)font-size计算值的倍数</h3>
 <h3>1.要实现这种气泡图，要怎么做？
     1-1.主要的就是实现那个小三角,首先想到的肯定是使用<b style="background: red">伪元素+定位</b></h3>
 <p> /* 制作三角形-- transparent:全透明*/</p>
@@ -125,6 +129,24 @@
 <p>word-break:break-all;</p>
 <p>word-wrap:break-word;</p>
 
+<h3>4.background-attachment: fixed; 固定背景图</h3>
+<style>
+    /*background-attachment: fixed; 固定背景图*/
+    .scroll {
+        background: url('http://lorempixel.com/600/200/animals');
+        background-attachment: scroll;
+    }
+
+    .fixed {
+        background: url('http://lorempixel.com/600/200/animals');
+        background-attachment: fixed;
+    }
+
+    .local {
+        background: url('http://lorempixel.com/600/200/animals');
+        background-attachment: local;
+    }
+</style>
 
 </body>
 </html>
