@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>伪类before.after,.clearfix清除浮动(兼容IE6,7),制作三角形+气泡图,容器内元素(垂直居中)显示 </title>
+<style>
+    .box{
+        position: relative;
+        width:50rem;
+        height:10rem;
+        background: rgb(0,0,0);
+        border-radius:20px;
+    }
+    .box:before{
+        content:"";
+        width:0px;
+        height:0px;
+        position: absolute;
+        top:50px;
+        right:-30px;
+        border-width:30px ;
+        border-style:solid;
+        border-color:rgb(0,0,0) transparent transparent transparent;
+        transform:rotate(30deg);
+        /* 制作三角形 */
+    }
+    .box-inset {
+        position: relative;
+        top:.05rem;
+        left:.05rem;
+        width:49.9rem;
+        height:9.85rem;
+        background: #fff;
+        border-radius:20px;
+        font-size: 10rem;
+
+        /* 容器内元素 垂直居中 显示*/
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        /*水平方向*/
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        /*垂直方向*/
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    .box-inset:before{
+        content:"";
+        width:0px;
+        height:0px;
+        position: absolute;
+        top:50px;
+        right:-28px;
+        border-width:28px ;
+        border-style:solid;
+        border-color:#fff transparent transparent transparent;
+        transform:rotate(29deg);
+        /* 制作三角形 */
+    }
+
+    .clearfix,.clearfix:before,.clearfix:after {
+        display:table;
+        context:'';
+    }
+    .clearfix:after {
+        clear:both;
+    }
+    .clearfix {
+        *zoom:1;/*IE/7/6*/
+    }
+
+</style>
+</head>
+
+<body>
+<h3>1.要实现这种气泡图，要怎么做？
+    1-1.主要的就是实现那个小三角,首先想到的肯定是使用<b style="background: red">伪元素+定位</b></h3>
+<p> /* 制作三角形-- transparent:全透明*/</p>
+<p> border-width:30px ;</p>
+<p> border-style:solid;</p>
+<p> border-color:rgb(177,232,100) transparent transparent transparent;</p>
+<p> transform:rotate(30deg);//旋转30度</p>
+<br>
+<div class='box'>
+    <div class="box-inset">气泡图</div>
+</div>
+<br>
+<br>
+<p>1-2.容器内元素 垂直居中 显示</p>
+<p>display: -webkit-box;</p>
+<p>display: -ms-flexbox;</p>
+<p>display: -webkit-flex;</p>
+<p>display: flex;</p>
+<p>/*水平方向*/</p>
+<p>-webkit-box-pack: center;</p>
+<p>-ms-flex-pack: center;</p>
+<p>-webkit-justify-content: center;</p>
+<p>justify-content: center;</p>
+<p>/*垂直方向*/</p>
+<p>-webkit-box-align: center;</p>
+<p>-ms-flex-align: center;</p>
+<p>-webkit-align-items: center;</p>
+<p>align-items: center;</p>
+<br>
+<br>
+<h3>2.clearfix清除浮动</h3>
+<div class='clearfix'>
+    <ul>
+        <!--li{}*5 + tab键-->
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+</div>
+
+<h3>3.单词换行</h3>
+<p>word-break:break-all;</p>
+<p>word-wrap:break-word;</p>
+
+
+</body>
+</html>
