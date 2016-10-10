@@ -1,0 +1,171 @@
+.col-xs-1,.col-xs-2,.col-xs-3,.col-xs-4,.col-xs-5,.col-xs-6,.col-xs-7,.col-xs-8,.col-xs-9,.col-xs-10,.col-xs-11,.col-xs-12 {
+    padding:0;
+}
+body{
+    font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 62.5%;
+}
+body,p,ul,ol,li,dl,dt,dd,form,h1,h2,h3,h4,h5,h6,input,fieldset, legend, button, input, textarea{
+    margin:0;
+    padding:0;
+}
+ul,ol,li{
+    list-style:none;
+}
+img,input{
+    border:0;
+}
+a{
+    text-decoration:none;
+}
+input {
+    outline: none;
+}
+i,em {
+    font-style: normal;
+}
+.container{
+    padding: 0;
+    margin: 0 auto;
+}
+.row{
+    margin: 0;
+}
+.zmxy-header {
+    padding: 0 15px;
+    background: #40C9B8;
+}
+.zmxy-header .bg-grey {
+    height: 5rem;
+    font-size: 1.1rem;
+    color:#fff;
+}
+.zmxy-header .bg-grey .lf-back {
+    display: box;
+    display: -moz-box;
+    display: -webkit-box;
+    box-align: center;
+    -moz-box-align: center;
+    -webkit-box-align: center;
+    box-pack: center;
+    -moz-box-pack: center;
+    -webkit-box-pack: center;
+}
+.zmxy-header .bg-grey .lf-back p {
+    margin-left: -1px;
+    line-height: 5rem;
+    font-size: 1.5rem;
+}
+.zmxy-header .bg-grey .lf-back img {
+    width: 18px;
+}
+.zmxy-header .bg-grey .ct-title {
+    height: 5rem;
+    line-height: 5rem;
+    font-size: 1.8rem;
+    text-align: center;
+}
+.zmxy-content {
+    height: 100%;
+    background: #eee;
+}
+.zmxy-content .step {
+    padding: 2.2rem 15px;
+}
+.zmxy-content .step .box {
+    text-align: center;
+    position: relative;
+}
+.zmxy-content .step .box .dashed {
+    position: absolute;
+    top: 30%;
+    left: 0;
+    width:50%;
+    border-bottom: 1px dashed #999;
+    z-index: 1;
+}
+.zmxy-content .step .box .rg-dashed {
+    left: 49%;
+}
+.zmxy-content .step .box .color-dashed {
+    border-bottom: 1px dashed #40C9B8;
+}
+.zmxy-content .step .box .radius {
+    margin: 0 auto;
+    width:32px;
+    height:32px;
+    line-height:32px;
+    font-size: 1.8rem;
+    color:#fff;
+    border-radius:50%;
+    -webkit-border-radius:50%;
+    -moz-border-radius:50%;
+    -o-border-radius:50%;
+    text-align: center;
+    background: #40C9B8;
+    display: block;
+    position: relative;
+    z-index: 10;
+}
+.zmxy-content .step .box .default-arc {
+    background: #ccc;
+}
+.zmxy-content .step .box .tip {
+    margin: .4rem 0 0 0;
+    font-size: 1.25rem;
+    color:#666;
+    display: block;
+}
+.zmxy-content .step .box .default-tip {
+    color:#999;
+}
+.zmxy-txt {
+    background: rgba(250,250,250,0.3);
+}
+.zmxy-txt .step {
+    padding: 0 0 0 10%;
+}
+.zmxy-txt .step .user-tip {
+    line-height: 3.4rem;
+    color: #777;
+    font-size: 1.4rem;
+    border-top:1px solid #ddd;
+}
+.zmxy-txt .step .no-line {
+    border-top:none;
+}
+.zmxy-txt .step .user-tip label {
+    width:20%;
+    text-align: right;
+}
+.zmxy-txt .step .user-tip input {
+    padding-left: 5%;
+    width:61%;
+    background: rgba(250,250,250,0.3);
+}
+@media screen and (max-width : 340px) {
+    .zmxy-txt .step .user-tip label {
+        width:24%;
+        text-align: right;
+    }
+    .zmxy-txt .step .user-tip input {
+        width:55%;
+    }
+}
+.in-tip {
+    padding: 0 0 0 15px;
+    font-size: 1.1rem;
+    line-height: 26px;
+    border-top:1px solid #ddd;
+    background: #eee;
+}
+.btn {
+    margin:2.4rem auto 0;
+    width:60%;
+    font-size: 1.6rem;
+    color:#fff;
+    text-align: center;
+    background: #40C9B8;
+    display: block;
+    cursor: pointer;
+}
