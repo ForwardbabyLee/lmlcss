@@ -65,19 +65,6 @@
         transform:rotate(29deg);
         /* 制作三角形 */
     }
-
-    .clearfix,.clearfix:before,.clearfix:after {
-        display:table;
-        context:'';
-    }
-    .clearfix:after {
-        clear:both;
-    }
-    .clearfix {
-        *zoom:1;/*IE/7/6*/
-    }
-
-
 </style>
 </head>
 
@@ -97,10 +84,16 @@
 <br>
 <br>
 <p>1-2.容器内元素 垂直居中 显示</p>
-<p>display: -webkit-box;</p>
-<p>display: -ms-flexbox;</p>
-<p>display: -webkit-flex;</p>
-<p>display: flex;</p>
+
+<p>display: flexbox;</p>
+<p>display: box;</p>
+<p>display: -moz-box; /* Firefox 17- */</p>
+<p>display: -webkit-box; /* Chrome 4+, Safari 3.1, iOS Safari 3.2+ */</p>
+<p>display: -webkit-flex; /* Chrome 21+, Safari 6.1+, iOS Safari 7+, Opera 15/16 */</p>
+<p>display: -moz-flex; /* Firefox 18+ */</p>
+<p>display: flex; /* Chrome 29+, Firefox 22+, IE 11+, Opera 12.1/17/18, Android 4.4+ */</p>
+<p>display: -ms-flexbox; /* IE 10 */</p>
+
 <p>/*水平方向*/</p>
 <p>-webkit-box-pack: center;</p>
 <p>-ms-flex-pack: center;</p>
@@ -114,6 +107,23 @@
 <br>
 <br>
 <h3>2.clearfix清除浮动</h3>
+<h4>:before,:after,::selection,first-line,.first-letter 为伪元素</h4>
+<h4>:hover,:link,target,:foucs,:active 为伪类</h4>
+<p>使用伪元素是相对容易的，:before将会在内容之前“添加”一个元素而:after将会在内容后“添加”一个元素。在它们之中添加内容我们可以使用content属性。</p>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAxODE2MjM1MA==&mid=2651551391&idx=1&sn=c98aab891194dee9e2097f769f56dff7&chksm=8025a15eb7522848b773949acdb82b5e988c09e535694d1c55252bdcc89e87c84beca4172ab6&scene=0#rd">复制一关于伪类\伪元素的链接</a>
+<style>
+    .clearfix,.clearfix:before,.clearfix:after {
+        display:table;
+        context:'';
+    }
+    .clearfix:after {
+        clear:both;
+    }
+    .clearfix {
+        *zoom:1;/*IE/7/6*/
+    }
+
+</style>
 <div class='clearfix'>
     <ul>
         <!--li{}*5 + tab键-->
@@ -147,6 +157,65 @@
         background-attachment: local;
     }
 </style>
+
+<h3>定位在移动端,常用弹窗</h3>
+<style>
+    .mask{
+        position: fixed;
+        left:0;
+        top:0;
+        width:100%;
+        height:100%;
+        background: rgba(0,0,0,.6);
+        z-index: 10;
+        visibility: hidden;
+    }
+    .alert-box{
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate3d(-50%, -50%, 0);
+        -ms-transform: translate3d(-50%, -50%, 0);
+        -o-transform: translate3d(-50%, -50%, 0);
+        transform: translate3d(-50%, -50%, 0);
+        background: rgba(255,255,255,.9);
+        width: 40%;
+        height: 70%;
+        z-index: 20;
+
+        visibility: hidden;
+
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -moz-box;
+        display: -moz-flex;
+        display: -webkit-flex;
+        display: flex;
+        /*水平方向*/
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        /*垂直方向*/
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center
+    }
+</style>
+<div class="mask"></div>
+<div class="alert-box">弹框,框内内容垂直居中显示</div>
+<p>position: fixed;</p>
+<p>left: 50%;</p>
+<p>top: 50%;</p>
+<p>-webkit-transform: translate3d(-50%, -50%, 0);</p>
+<p>-ms-transform: translate3d(-50%, -50%, 0);</p>
+<p>-o-transform: translate3d(-50%, -50%, 0);</p>
+<p>transform: translate3d(-50%, -50%, 0);</p>
+<p>background: rgba(255,255,255,.9);</p>
+<p>width: 40%;</p>
+<p>height: 70%;</p>
+<p>z-index: 20;</p>
 
 </body>
 </html>
