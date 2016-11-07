@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SVG动画</title>
+</head>
+<body>
+<h3>首先我们定义一块画布，然后在上面画一个圆形</h3>
+<svg width="300" height="300">
+    <text x="175" y="100" stroke="red">放大圆</text>
+    <circle cx="200" cy="200" r="50" style="fill:#ff6600" >
+        <animate
+                attributeName="r"
+                attributeType="XML"
+                from="50"
+                to="80"
+                begin="0s"
+                dur="2s"
+        />
+    </circle>
+
+    <text x="75" y="150" fill="red">变色圆</text>
+    <circle cx="100" cy="100" r="30" style="fill:#fff600" >
+        <animate
+                attributeName="fill"
+                attributeType="css"
+                from="#fff600"
+                to="#ff0600"
+                begin="0.2s"
+                dur="2s"
+        />
+    </circle>
+</svg>
+
+<p>attributeName：动画属性名，顾名思义，你想要改变哪个属性</p>
+
+<p>attributeType：动画属性的类别，常见的两个值，XML和css，取决于属性是在xml里还是在style里，下面改变opacity的demo里，就是使用的css。不写的时候默认值为auto，他会先搜索css，建议写上。
+
+<p>from to ：属性的开始和结束值，from可选，当不写的时候会取默认值。</p>
+
+<p>begin dur ：动画的开始时间与结束时间。如果你想打开页面过几秒才开始动画，那么就定义begin就好了。</p>
+
+<img src="../lmlcss/mooncake-share.png" style="display: none" alt="图片" id="img2">
+
+<svg width="440" height="140">
+    <text text-anchor="middle" x="170" y="22">点状光</text>
+    <filter id="lightMe1">
+        <feDiffuseLighting in="SourceGraphic" result="light" lighting-color="white">
+            <fePointLight x="150" y="60" z="20" />
+        </feDiffuseLighting>
+
+        <feComposite in="SourceGraphic" in2="light" operator="arithmetic" k1="1" k2="0" k3="0" k4="0"/>
+    </filter>
+
+    <circle cx="170" cy="80" r="50" fill="green" filter="url(#lightMe1)" />
+</svg>
+
+<!--viewBox="x, y, width, height"  // x:左上角横坐标，y:左上角纵坐标，width:宽度，height:高度-->
+<svg width="100%" height="400" fill="red" style="border:2px solid green" viewBox="0,0,100%,200" >
+    <text x="50" y="50" text-anchor="middle">
+        波浪文字
+    </text>
+    <defs>
+        <!--路径-->
+        <path id="MyPath"
+              d="M 100 200
+             C 200 100 300   0 400 100
+             C 500 200 600 300 700 200
+             C 800 100 900 100 900 100" />
+    </defs>
+    <!--描线路径-->
+    <!--use标记的作用是能从SVG文档内部取出一个节点，克隆它，并把它输出到别处。跟‘引用’很相似，但它是深度克隆。-->
+    <use xlink:href="#MyPath" fill="none" stroke="red"  />
+
+    <text font-size="32.5" font-family="宋体">
+        <!--文字路径-->
+        <textPath xlink:href="#MyPath">
+            我先往上去，然后往下去，然后再往上去，漂亮吧！
+        </textPath>
+    </text>
+
+    <!--黑边框-->
+    <rect x="1%" y="1" width="99%" height="258"
+          fill="none" stroke="black" stroke-width="2" />
+</svg>
+
+<video src="" controls loop autoplay>
+    Your browser does not support the <code>video</code> element.
+</video>
+<progress value="30" max="100"></progress>
+<script type="text/javascript">
+    //1. 普通函数 box
+    function box(){
+        return true;
+    }
+    console.log(box);//box是函数,一个函数表达式,结果:function box() { return true; }
+    console.log(box());//box()是执行box函数,结果: true
+
+    //2. 匿名函数
+    //2-1. todo 单独的匿名函数,会报错,无法调用,运行,没有名称
+//    function (){
+//        return 'MayLing';
+//    }
+    //2-2. todo 把匿名函数 赋予给 变量,
+    var bag = function(){
+        return 'MayLing';
+    };
+    console.log(bag);//bag是函数,function(){ return 'MayLing'; }
+    console.log(bag());//bag()是执行bag函数,返回"MayLing"值;
+
+    //2-3. todo 通过 自我执行 来执行匿名函数 :    ( 匿名函数 )( 执行 );
+    (function (){
+        console.log('( 匿名函数 )( 执行 );自我执行方式来直线匿名函数');
+    })();//可行的
+    // todo function(){ return '自我执行方式来直线匿名函数';}  // 是一个表达式,加括号成一个函数整体
+    (function (){
+        console.log('( 111匿名函数 )( 执行 );自我执行方式来直线匿名函数');
+    }());//可行的
+
+    //2-3-2. todo 把匿名函数自我执行的返回值赋给变量
+    var contxt = (function(){
+        return '2-3-2.匿名函数自我执行';
+    })();
+    //通过变量,调用返回值
+    console.log(contxt);//结果:匿名函数自我执行
+
+    //2-3-3.自我执行后console.log()输出
+    console.log((function(){
+        return '2-3-3.alert匿名函数自我执行';
+    })());
+
+    //2-3-4.自我执行匿名函数的传参
+    (function(age){
+        //alert(age);//为了观看,设置alert,传入值为100
+        return age;
+    })(100);
+
+    //2-3-5
+//    (函数声明)();
+//    (匿名函数());
+
+    function convertImageToCanvas(image) {
+        var canvas = document.createElement("canvas");
+        canvas.width = image.width;
+        canvas.height = image.height;
+        canvas.getContext("2d").drawImage(image, 0, 0);
+
+        return canvas;
+    }
+
+</script>
+
+</body>
+</html>
