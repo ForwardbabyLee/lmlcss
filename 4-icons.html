@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>小图标收集-伪类:before + :after</title>
+    <style>
+        .container {
+            margin: 0 auto;
+            padding: 0;
+            position: relative;
+            width:100%;
+            height:500px;
+            background: #fd93e6;
+        }
+        .xin {
+            color: #ff2b01;
+            position: absolute;
+            top:100px;
+            left:100px;
+            width:20px;
+            height:20px;
+            border-left: 3px solid #fff;
+            border-bottom: 3px solid #fff;
+            -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+            z-index: 10;
+        }
+        .xin:before{
+            content: '';
+            width: 18px;
+            height: 14px;
+            border-radius: 15px 15px 0 0;
+            position: absolute;
+            top: -15px;
+            left: -3px;
+            border-top: 3px solid #fff;
+            border-left: 3px solid #fff;
+            border-right: 3px solid #fff;
+            z-index: 1;
+        }
+        .xin:after {
+            content: '';
+            width: 14px;
+            height: 18px;
+            border-radius: 0 15px 15px 0;
+            position: absolute;
+            top: -1px;
+            right: -15px;
+            border-top: 3px solid #fff;
+            border-right: 3px solid #fff;
+            border-bottom: 3px solid #fff;
+
+        }
+        .xin-bg,.xin-bg:before,.xin-bg:after {
+            background: red;/* 背景色 */
+        }
+        .xin-bg{
+            top:150px;
+        }
+        .arrow {
+            position: absolute;
+            left:150px;/* 换成margin  也行*/
+            top:15px;/* 换成margin  也行*/
+            width: 1px;
+            height:22px;
+            border-left: 1px solid #000;
+        }
+        .arrow:before {
+            content:'';
+            position: absolute;
+            top:2px;
+            left:-9px;
+            width: 16px;
+            height:16px;
+            border-top:1px solid #000;
+            border-right:1px solid #000;
+            -webkit-transform: rotate(135deg);
+            transform: rotate(135deg);
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="xin"></div>
+        <div class="xin xin-bg"> </div>
+        <div class="arrow"></div>
+    </div>
+</body>
+</html>
