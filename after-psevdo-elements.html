@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>伪类-css应用</title>
+</head>
+<body>
+<!--<style>-->
+
+<!--</style>-->
+<!--<h3>叠加图像效果(before + after)</h3>-->
+<!--<div class="add-shadows">-->
+
+<!--</div>-->
+
+<br/>
+
+<h3>CSS Box Shadow Effect 2</h3>
+<style>
+    .box-effect {
+        width: 60%;
+        height: 150px;
+        background: #9f9899;
+        opacity: 0.5;
+
+        display: -webkit-flex; /* Chrome 21+, Safari 6.1+, iOS Safari 7+, Opera 15/16 */
+        display: -moz-flex; /* Firefox 18+ */
+        display: flex; /* Chrome 29+, Firefox 22+, IE 11+, Opera 12.1/17/18, Android 4.4+ */
+        display: -ms-flexbox; /* IE 10 */
+        display: flexbox;
+        display: box;
+        display: -moz-box; /* Firefox 17- */
+        display: -webkit-box; /* Chrome 4+, Safari 3.1, iOS Safari 3.2+ */
+
+        -webkit-box-align: center; /*垂直居中*/
+        -moz-box-align: center;
+        box-align: center;
+
+        -webkit-box-pack: center; /*水平居中*/
+        -moz-box-pack: center;
+        box-pack: center;
+    }
+
+    .box-effect .box {
+        width: 80%;
+        height: 80%;
+        color: #fff;
+        background: #fff;
+        display: -webkit-flex; /* Chrome 21+, Safari 6.1+, iOS Safari 7+, Opera 15/16 */
+        display: -moz-flex; /* Firefox 18+ */
+        display: flex; /* Chrome 29+, Firefox 22+, IE 11+, Opera 12.1/17/18, Android 4.4+ */
+        display: -ms-flexbox; /* IE 10 */
+        display: flexbox;
+        display: box;
+        display: -moz-box; /* Firefox 17- */
+        display: -webkit-box; /* Chrome 4+, Safari 3.1, iOS Safari 3.2+ */
+        -webkit-box-align: center; /*垂直居中*/
+        -moz-box-align: center;
+        box-align: center;
+
+        -webkit-box-pack: center; /*水平居中*/
+        -moz-box-pack: center;
+        box-pack: center;
+        position: relative;
+    }
+
+    .box-effect .effect2 {
+        position: relative;
+        border: 1px solid #666;
+    }
+
+    .effect2:before, .effect2:after {
+        position: absolute;
+        top: 90%;
+        left: 10px;
+        bottom: 15px;
+        max-width: 150px;
+        background: red;
+        z-index: -1;
+    }
+
+    .effect2:after {
+
+    }
+
+
+</style>
+
+<div class="box-effect ">
+    <div class="box effect2">Box Shadow Effect</div>
+</div>
+
+<script>
+    //        event.stopPropagation();
+    //        event.preventDefault();
+    //var a;//变量显式声明,全局变量
+    a = 3;//变量隐式声明,函数内容的变量隐式声明,会覆盖全局变量
+
+    function foo() {
+//        var a;         // 一局部变量
+        if (a) {      //空，null,undefined,false,0,””,'',NaN都为假,其他都为真
+//            var a= 2;
+//            a = 1;    //变量隐式声明,函数内容的变量隐式声明,会覆盖全局变量
+            console.log(a+'全局变量');
+        }
+        console.log(a);
+    }
+    foo();
+//结果:
+</script>
+
+
+</body>
+</html>
