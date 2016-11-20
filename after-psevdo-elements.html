@@ -106,7 +106,30 @@
         console.log(a);
     }
     foo();
-//结果:
+
+    //    alert(1 + - + + + - + 1);
+    var a = 111111111111111110000,
+            b = 1111;
+//    alert(a + b);
+    var name = 'World!';
+
+    (function () {
+        if (typeof (name) === 'undefined') {
+            var name = 'Jack';//显式声明,在函数内就是局部变量
+//                name = 'Jack';//隐式声明,在函数内就是全局变量
+
+            console.log('Goodbye ' + name);
+        } else {
+            console.log('Hello ' + name);
+        }
+    })();
+
+    function aa(){
+        var aa = 5;//局部变量
+        alert(aa);
+    }
+//    aa();
+    //结果:
 </script>
 
 

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h2>一.点击元素产生背景或边框怎么去掉</h2>
+<p>/ios用户点击一个链接，会出现一个半透明灰色遮罩, 如果想要禁用，可设置-webkit-tap-highlight-color的alpha值为0去除灰色半透明遮罩；</p>
+<p>//android用户点击一个链接，会出现一个边框或者半透明灰色遮罩, 不同生产商定义出来额效果不一样，可设置-webkit-tap-highlight-color的alpha值为0去除部分机器自带的效果；</p>
+<p>//winphone系统,点击标签产生的灰色半透明背景，能通过设置<meta name="msapplication-tap-highlight" content="no">去掉；</p>
+<p>//特殊说明：有些机型去除不了，如小米2。对于按钮类还有个办法，不使用a或者input标签，直接用div标签</p>
+<p>a,button,input,textarea {v
+<p>-webkit-tap-highlight-color: rgba(0,0,0,0);</p>
+<p>-webkit-user-modify:read-write-plaintext-only; //-webkit-user-modify有个副作用，就是输入法不再能够输入多个字符</p>
+<p>}</p>
+<p>// 也可以</p>
+<p>* { -webkit-tap-highlight-color: rgba(0,0,0,0); }</p>
+<p>//winphone下</p>
+<p><meta name="msapplication-tap-highlight" content="no"></p>
+
+<br>
+<h2>二.移动端字体单位font-size选择px还是rem</h2>
+</body>
+</html>
