@@ -114,7 +114,7 @@
 <style>
     .clearfix,.clearfix:before,.clearfix:after {
         display:table;
-        context:'';
+        content:'';
     }
     .clearfix:after {
         clear:both;
@@ -188,7 +188,7 @@
         display: -webkit-box;
         display: -ms-flexbox;
         display: -moz-box;
-        display: -moz-flex;
+        display: -ms-flexbox;
         display: -webkit-flex;
         display: flex;
         /*水平方向*/
@@ -217,5 +217,12 @@
 <p>height: 70%;</p>
 <p>z-index: 20;</p>
 
+<script type="text/javascript">
+    var person = {name:'李行',ages:'60岁',adds:'北京'};
+    var person1 = ['李行','60岁','北京'];
+    for(x in person1){
+        console.log('第几项:'+person1[x])
+    }
+</script>
 </body>
 </html>

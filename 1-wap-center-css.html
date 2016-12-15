@@ -7,7 +7,7 @@
 <body>
 <style>
     /*一、当文本溢出，显示省略号*/
-    .test {
+    .test,.test1 {
         text-overflow: ellipsis;
         overflow:hidden;
         white-space:nowrap;
@@ -21,6 +21,10 @@
         text-overflow:inherit;
         overflow:visible;
     }
+    /*二、当光标浮动到元素是那个，显示全文本,并且保留空白符序列，但是正常地进行换行。*/
+    .test1:hover{
+        white-space: pre-wrap;
+    }
 
 </style>
 <h3>1.当文本溢出：text-overflow</h3>
@@ -33,6 +37,7 @@
 </p>
 <h4>例如:</h4>
 <div class="test">当文本溢出，显示省略号被修剪的文本</div>
+<div class="test1">当文本溢出，显示省略号被修剪的文本</div>
 
 
 
