@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+ //  fixed固定底部,当弹出键盘,底部挡住输入框:
+//  获取焦点以后通过 JS  去修改整个页面的位置 你可以固定一个位置  比如 margin-top：-100吧页面提上去  等事情焦点了在变回0  ：
+
+    $(function () {
+        function parseUA()
+        {
+            var ugent = navigator.userAgent;
+            var ugentS = ugent.toLowerCase(); //转换成小写
+            return{
+                webKit: ugent.indexOf('AppleWebKit') > -1,//苹果、谷歌内核
+                mobile: !!ugent.match(/AppleWebKit.*Mobile.*/),//是否为移动终端
+                ios: !!ugent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),//ios终端
+                weixin: ugent.indexOf('MicroMessenger') > -1,//是否微信
+                android: ugent.indexOf('Android') > -1|| ugent.indexOf('Linux') > -1,//android终端或者uc浏览器
+                iPhone: ugent.indexOf('iPhone') > -1 //是否为iPhone或者QQHD浏览器
+            }
+        }
+
+        var ua = parseUA();
+        function showfix()
+        {
+            if (ua.iPhone) {
+                $(".fixed-box").show();
+                $(".fixed-float").show();
+            }else if(ua.android){
+                $(".fixed-box").show();
+                $(".fixed-float").show();
+            }
+        }
+
+        function hidefix()
+        {
+            if (ua.iPhone) {
+                $(".fixed-box").hide();
+                $(".fixed-float").hide();
+            }else if(ua.android){
+                $(".fixed-box").hide();
+                $(".fixed-float").hide();
+            }
+        }
+
+        $("input.text-single").on("blur",showfix);
+        $("input.text-single").on("focus",hidefix);
+    });
+</script>
+</body>
+</html>
