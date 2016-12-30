@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IScroll.js</title>
+</head>
+<body>
+<div>
+    <h2>显示弹框，并且阻止页面滚动，同时让弹框内的长页面在一定容器内滑动</h2>
+    <p>1.html部分:</p>
+    <h3>id="wrapper"元素下面的第一个元素，才有滚动功能</h3>
+    <div id="wrapper"> 
+        <ul class="clearfix" id="prize-more"> 
+        </ul> 
+    </div>
+
+    <p>2.js部分:</p>
+    <script type="text/javascript" src="jquery/iscroll2.js"></script>
+    <script type="text/javascript">
+    var myScroll = new IScroll("#wrapper", { 
+        bounce:false,/*是否有弹性滚动*/ 
+        vScrollbar:false,/*是否显示垂直滚动条*/ 
+        click:true, //调用判断函数 
+        scrollbars: false,//有滚动条 
+        mouseWheel: false,//允许滑轮滚动 
+        fadeScrollbars: true//滚动时显示滚动条，默认隐藏，并且是淡出淡入效果
+     }); 
+    document.addEventListener('touchmove',eventTarget, false);
+    document.removeEventListener('touchmove',eventTarget,false);
+//    document.body.removeEventListener('touchmove',eventTarget,false);
+
+    function eventTarget(event){ 
+        event.preventDefault();//阻止默认事件 
+    }
+    </script>
+
+</div>
+</body>
+</html>
