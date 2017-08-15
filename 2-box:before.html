@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>伪类before.after,.clearfix清除浮动(兼容IE6,7),制作三角形+气泡图,容器内元素(垂直居中)显示,单词换行</title>
-<style>
+    <script type="text/javascript" src="../js-bag/lib.flexible.js"></script>
+    <style>
     .box{
         position: relative;
         width:50rem;
@@ -224,5 +225,89 @@
         console.log('第几项:'+person1[x])
     }
 </script>
+
+
+<!--  css3制作小圆叉  -->
+<style>
+    .pop-up {
+        /*display: none;*/
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 68%;
+        height: 4rem;
+        border: 0.04rem solid #ffa202;
+        background: #fffae4;
+        border-radius: .2rem;
+        -webkit-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
+        z-index: 11;
+    }
+    .pop-up span {
+        display: inline-block;
+    }
+    .pop-up .close-bg {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 0.69333333rem;
+        height: 0.69333333rem;
+        border: 0.04rem solid #ffa202;
+        background: #fffae4;
+        -webkit-transform: translate(51%,-49%);
+        transform: translate(51%,-49%);
+        border-radius: 50%;
+        z-index: 5;
+    }
+    .pop-up .del-border {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 0.73rem;
+        height: 0.73rem;
+        background: #fffae4;
+        border: 0.04rem solid #fffae4;
+        border-radius: 0 0 0 100%;
+        -webkit-transform: translate(25%,-25%) scale(.5);
+        transform: translate(25%,-25%) scale(.5);
+        z-index: 12;
+    }
+    .pop-up .close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 0.69333333rem;
+        height: 0.69333333rem;
+        -webkit-transform: translate(50%,-50%);
+        transform: translate(50%,-50%);
+        border-radius: 50%;
+        z-index: 20;
+    }
+    .pop-up .close:before,.pop-up .close:after {
+        display: inline-block;
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 15%;
+        height: 75%;
+        background: #7e7e7e;
+        -webkit-transform: translate(-50%,-50%) rotate(45deg);
+        transform: translate(-50%,-50%) rotate(45deg);
+        border-radius: 5px;
+    }
+    .pop-up .close:after {
+        width: 75%;
+        height: 15%;
+    }
+</style>
+<h3>css3制作小圆叉</h3>
+<div class="pop-up ">
+    <span class="close-bg"></span>
+     <span class="del-border"></span>
+     <span class="close"></span>
+    <div>css3制作：弹框的小圆叉</div>
+</div>
+
 </body>
 </html>
