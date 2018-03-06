@@ -3,30 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>常用css收集</title>
+    <style>
+        /*一、当文本溢出，显示省略号*/
+        .test,.test1 {
+            text-overflow: ellipsis;
+            overflow:hidden;
+            white-space:nowrap;
+
+            width: 180px;
+            background: #999;
+            color:red;
+        }
+        /*二、当光标浮动到元素是那个，显示全文本*/
+        .test:hover {
+            text-overflow:inherit;
+            overflow:visible;
+        }
+        /*二、当光标浮动到元素是那个，显示全文本,并且保留空白符序列，但是正常地进行换行。*/
+        .test1:hover{
+            white-space: pre-wrap;
+        }
+
+    </style>
 </head>
 <body>
-<style>
-    /*一、当文本溢出，显示省略号*/
-    .test,.test1 {
-        text-overflow: ellipsis;
-        overflow:hidden;
-        white-space:nowrap;
-
-        width: 180px;
-        background: #999;
-        color:red;
-    }
-    /*二、当光标浮动到元素是那个，显示全文本*/
-    .test:hover {
-        text-overflow:inherit;
-        overflow:visible;
-    }
-    /*二、当光标浮动到元素是那个，显示全文本,并且保留空白符序列，但是正常地进行换行。*/
-    .test1:hover{
-        white-space: pre-wrap;
-    }
-
-</style>
 <h3>1.当文本溢出：text-overflow</h3>
 <p>text-overflow：显示省略符号来代表被修剪的文本</p>
 <p>text-overflow: clip  | ellipsis   | string ;</p>
@@ -43,7 +43,7 @@
 
 <h3 style="margin-top:40px;">2.不论li增加减少,一次性设置样式,使红色nav区域始终要水平居中页面(于灰色区域),如下图:</h3>
 <h4><span style="color:#f45;">看点1:</span>nav的父元素.box添加属性{float: left;position:relative;left:-50%;},如果float:right,则left:50%;</h4>
-<h4><span style="color:#f45;">看点2:</span>.box的父元素.box添加属性{float: left;position:relative;left:50%;},如果float:right,则left:-50%;</h4>
+<h4><span style="color:#f45;">看点2:</span>.box的父元素.box-width添加属性{float: left;position:relative;left:50%;},如果float:right,则left:-50%;</h4>
 <div class="width">
     <div class="box-width">
         <div class="box">
