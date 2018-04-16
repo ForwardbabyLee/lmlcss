@@ -2,11 +2,58 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>（ios8 系统对）fixed的兼容性</title>
+    <style>
+        .swiper-container {
+            position: fixed;
+            /*top: 0; 直接书写 top: 0 来兼容 ios8; 这样 会导致其他版本样式错乱 */
+            width: 100%;
+            max-width: 750px;
+            margin: 0 auto;
+            height: 100%;
+            background: #e026ce;
+            background-size: 100% auto;
+        }
+    </style>
 </head>
 <body>
+<!--  swiper slide 中前套 slide  :（ios8 系统对）fixed的兼容性  -->
+<div class="swiper-container swiper-container-father">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide slide1">
+            slide1
+        </div>
+        <div class="swiper-slide slide2">
+            <div class="swiper-container swiper-container-son">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide slide1-bg">slide2-1</div>
+                    <div class="swiper-slide">slide2-2</div>
+                </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </div>
+</div>
+
 <script>
- //  fixed固定底部,当弹出键盘,底部挡住输入框:
+    // 1.js判断ios系统：（ios8 系统对fixed 必须写top值）
+    // 项目中－新手指引
+
+    var str= navigator.userAgent.toLowerCase();
+    var ver=str.match(/cpu iphone os (.*?) like mac os/);
+    var version = ver[1].replace(/_/g,".");
+    if (version != "undefined" && version.length >0) {
+        var num = version.split('.')[0];
+        if (num <= 8) {
+            $('.swiper-container').css({'top':'0'});
+        } else {
+            $('.swiper-container').css({'position':'fixed'});
+        }
+    }
+
+
+//  2.fixed固定底部,当弹出键盘,底部挡住输入框:
 //  获取焦点以后通过 JS  去修改整个页面的位置 你可以固定一个位置  比如 margin-top：-100吧页面提上去  等事情焦点了在变回0  ：
 
     $(function () {

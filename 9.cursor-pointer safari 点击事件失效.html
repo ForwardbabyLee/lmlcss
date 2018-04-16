@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>iOS Safari 中点击事件失效的解决办法</title>
+</head>
+<body>
+<h4>实战中发现bug：给a绑定的事件，没有起作用，原因是该元素是通过js动态添加进去的，所以一开始加载页面时，没有获取到该元素</h4>
+
+<h5>知识点：当使用委托给一个元素添加click事件时，如果事件是委托到 document 或 body 上，并且委托的元素是默认不可点击的（如 div, span 等），此时 click 事件会失效（主要出现在iso的safari浏览器和微信浏览器）。</h5>
+
+<p>解决方法：  <br>  1.	将 click 事件委托到 非 document 或 body 的 父级元素上 <br>  2.  给目标元素加一条样式规则 -------  cursor: pointer -------;</p>
+<br>
+<br>
+<p>尝试过以下方式：
+    <br>采用click事件时在手机浏览器中，无法触发事件，将click换成tap; singleTap： 单击 (在safari，body的click（动态添加的‘子元素’），不起作用)</p>
+
+<p>在 iOS 的浏览器和微信浏览器中进行测试:</p>
+
+<p>知识点：target</p>
+<p>target定义：</p>
+<p>target 事件属性可返回事件的目标节点（触发该事件的节点），如生成事件的元素、文档或窗口。</p>
+<p>语法：</p>
+<p>    event.target
+<p>    event.target.nodeName  　　//获取事件触发元素标签name（li,p...）</p>
+<p>    event.target.id　　　　　　　//获取事件触发元素id </p>
+<p>    event.target.className　　//获取事件触发元素classname </p>
+<p>    event.target.innerHTML　　//获取事件触发元素的内容（li）</p>
+<br/>
+<p>✓   jquery:  this 与 e.target区别：</p>
+<p>    this会冒泡。e.target不冒泡就是指向事件触发的dom。</p>
+<br/>
+<p>步骤： 先找页面加载的元素，添加js动态生成的元素（目标元素），<h4>将 click 事件委托到 非 document 或 body 的 父级元素上 ，$('body').on('click','目标元素', function () {});</h4><br> <h4>给目标元素加一条样式规则 －--  cursor: pointer ---;</h4></p>
+<script>
+    $('#listcontent').on('click', function (e) {
+        if ($(e.target).hasClass('twolink-btn')) {
+            var dataHref = $(e.target).data('href');
+            layer.open({
+                shadeClose: false,
+                content: '<p class="define-layer-title">电子合同平台、进行电子数据保全</p>'  ,btn: ['易保全', '保全']  ,className: 'popuo-login'  ,yes: function(index){  window.location.href=
+                dataHref + '&type=ybq';
+                layer.close(index);
+            },
+                no: function (index) {
+                    window.location.href = dataHref + '&type=miit';
+                    layer.close(index);
+                }
+            });
+        $(".popuo-login").append("<p class='lay-close'>关闭</p>");
+        }
+    });
+
+    $('body').on('click','.target', function () {
+        if ($('.target').hasClass('lay-close')) {
+            $('.layui-m-layer0').hide();
+        }
+    });
+
+    //////   append在元素尾部插入 ( 还在内部 )
+    $(".popuo-login").append("<p class='lay-close'>关闭</p>");
+    $(".popuo-login").append(function () {
+        return "<p class='lay-close'>关闭</p>"
+    });
+
+</script>
+
+</body>
+</html>

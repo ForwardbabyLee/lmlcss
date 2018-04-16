@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>html如何禁止(表单)用户名、密码自动填充+window.close的兼容性</title>
+</head>
+<body>
+<p>使用表单设置属性 autocomplete=”off” 来阻止浏览器从cache获取数据填充登录表单。</p>
+<input type="text" name="foo" autocomplete="off" />
+但是这种方案不兼容某些Chrome、Firefox。
+
+<p>解决方法：找到页面上第一个type为password的input,在其之前新增一个type类型为password来阻止目标对象的自动填充；</p>
+<input type="password" class="delete-password" autocomplete="off" />
+
+css:
+<style>
+    input.delete-password {
+        display: inline-block;
+        width: 1px;
+        height: 0;
+        /*不能直接设置display: none */
+    }
+
+</style>
+
+<script>
+
+    //   2、 对于 window.close的兼容性问题：
+    function test(fn) {
+        return function() {
+            var i = 0;
+            var timer = setInterval(function() {
+                console.log(i++);
+                if (i == 5) {
+                    clearInterval(timer);
+                    if (fn instanceof Function) {
+                        setTimeout(fn, 5000);
+                        fn = null;
+                    }
+                }
+            }, 200);
+        };
+    }
+    var t = test(test());
+    t();
+
+
+    function closeChrome() {
+        var browserName = navigator.appName;
+        console.log(browserName);
+        if (browserName == "Netscape") {
+            window.open('  ', '_self', '  ');  //  ' ' 有空格 
+            window.close();
+        } else {
+            window.close();
+        }
+    }
+
+</script>
+
+
+</body>
+</html>
